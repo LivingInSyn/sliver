@@ -41,7 +41,7 @@ Where `ptr` is a pointer to the buffer and `size` is the size of the buffer.
 
 Optionally, the following imports may be used:
 
-```
+```go
 log(ptr uint32, size uint32)
 rand() uint64
 time() int64
