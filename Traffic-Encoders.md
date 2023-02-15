@@ -6,7 +6,9 @@ As of v1.6.0 Sliver supports user-defined "Traffic Encoders," which can be used 
 
 For performance reasons, by default C2 messages over 2Mb in size are NOT passed through user-defined Traffic Encoders, but instead always use a native built-in encoder; this limit can be configured at implant generation-time.
 
-### Traffic Encoder Specification
+## Traffic Encoder Specification
+
+### Exports
 
 Traffic encoders are implemented in Wasm, and must export the following functions:
 
@@ -35,13 +37,19 @@ return (uint64(ptr) << uint64(32)) | uint64(size)
 
 Where `ptr` is a pointer to the buffer and `size` is the size of the buffer.
 
-#### Debug Log
+### Imports
 
-Optionally, the following import may be used:
+Optionally, the following imports may be used:
 
 ```
 log(ptr uint32, size uint32)
+rand() uint64
+time() int64
 ```
 
-This function takes a pointer to a buffer and the size of the buffer, and logs the contents of the buffer to the console if the implant is in debug mode. On the server will also log the contents if configured to log at the DEBUG level or higher.
+The `log` function takes a pointer to a buffer and the size of the buffer, and logs the contents of the buffer to the console if the implant is in debug mode. On the server will also log the contents if configured to log at the DEBUG level or higher.
+
+The `rand()` function returns 64-bits of cryptographically secure random data.
+
+The `time()` function returns the current Unix Nano time as an `int64`.
 
