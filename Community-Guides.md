@@ -29,5 +29,6 @@
 
 ### Threat Intel Reports
 * https://www.microsoft.com/security/blog/2022/08/24/looking-for-the-sliver-lining-hunting-for-emerging-command-and-control-frameworks/
+* https://www.cybereason.com/blog/sliver-c2-leveraged-by-many-threat-actors
 * https://www.team-cymru.com/post/sliver-case-study-assessing-common-offensive-security-tools
 * https://www.ncsc.gov.uk/files/Advisory%20Further%20TTPs%20associated%20with%20SVR%20cyber%20actors.pdf
