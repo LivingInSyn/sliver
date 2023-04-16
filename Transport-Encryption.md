@@ -38,7 +38,7 @@ The following keys are embedded in each implant at compile time, the server also
 8. The initiator decrypts the session key using Nacl Box (Curve25519, XSalsa20, and Poly1305) 
 9. All messages are encrypted with the session key using ChaCha20Poly1305
 10. Each side stores a SHA2-256 hash of each message's ciphertext to detect replayed messages
-11. The initiator then performs a key exchange with the server, using the server's embedded ECC public key, using the same pattern as described above but without the TOTP code.
+11. The initiator then performs a key exchange with the server, using the server's embedded ECC public key, using the same pattern as described above but without the TOTP code. This prevents upstream implants (i.e. the listener) from being able to decrypt any traffic sent between the initiator and the server.
 
 ### Known Limitations
 
