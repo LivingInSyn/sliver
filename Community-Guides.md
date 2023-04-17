@@ -27,6 +27,7 @@
 * https://blogs.vmware.com/security/2023/01/detection-of-lateral-movement-with-the-sliver-c2-framework.html
 * https://michaelkoczwara.medium.com/sliver-c2-implant-analysis-62773928097f
 * https://blog.tofile.dev/2021/09/04/sliver.html
+* https://bherunda.medium.com/hunting-detecting-smb-named-pipe-pivoting-lateral-movement-b4382bd1df4
 
 ### Threat Intel Reports
 * https://www.microsoft.com/security/blog/2022/08/24/looking-for-the-sliver-lining-hunting-for-emerging-command-and-control-frameworks/
