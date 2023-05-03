@@ -12,7 +12,7 @@ Sliver has two external dependencies for _optional_ features: MinGW and Metasplo
 
 #### System Requirements
 
-The Sliver server can run effectively on almost any system, however we recommend 8GB or more of RAM for compiling obfuscated builds as the obfuscator may require larger amounts of memory. You can also leverage [external builders](https://github.com/BishopFox/sliver/wiki/External-Builders) in conjunction with low resource systems to work around hardware limitations of the server (e.g. a low powered VPS). Symbol obfuscation can also be disabled per-build, see `generate --help` in the Sliver console.
+The Sliver server can run effectively on almost any system, however we recommend 8GB or more of RAM for compiling obfuscated builds as the obfuscator may require larger amounts of memory. You can leverage [external builders](https://github.com/BishopFox/sliver/wiki/External-Builders) in conjunction with low resource systems to work around hardware limitations of the server (e.g. a low powered VPS). Symbol obfuscation can also be disabled per-build, see `generate --help` in the Sliver console.
 
 
 ### MinGW Setup (Optional, Recommended)
