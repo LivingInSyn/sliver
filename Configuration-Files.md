@@ -62,7 +62,7 @@ Starting in version v1.1.0 Sliver supports SQL database configurations, by defau
 * `params` - Is a key/value string map that can be used to pass dialect specific options to the DSN/connection string. This can be used for example to enable SSL/TLS on certain database connections.
 * `max_idle_conns` - Max idle connections in the database connection pool.
 * `max_open_conns` - Max open connections in the database connection pool.
-* `log_level` - Configures the log level for database logging, can be set to: `silent`, `error`, `warn`, or `info`. Default level is `warn`, not that setting this option to `info` may result in sensitive information being logged to disk.
+* `log_level` - Configures the log level for database logging, can be set to: `silent`, `error`, `warn`, or `info`. Default level is `warn`, note that setting this option to `info` may result in sensitive information being logged to disk!
 
 
 # Client Configuration
