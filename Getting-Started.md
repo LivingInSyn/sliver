@@ -22,13 +22,13 @@ In order to enable shellcode/staged/DLL payloads you'll need to install MinGW on
 #### Linux (Debian-based)
 
 ```
-apt install mingw-w64
+apt install git mingw-w64
 ```
 
 #### MacOS
 
 ```
-brew install mingw-w64
+brew install git mingw-w64
 ```
 
 __Note:__ On MacOS you may need to configure [environment variables](https://github.com/BishopFox/sliver/wiki/Environment-Variables) for MinGW.
