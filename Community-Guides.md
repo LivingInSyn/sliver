@@ -22,6 +22,7 @@
 
 ### Development Blogs
 * https://github.com/thelikes/blog/blob/master/posts/sliver-bof-dev-quickstart.md 
+* https://medium.com/@youcef.s.kelouaz/writing-a-sliver-c2-powershell-stager-with-shellcode-compression-and-aes-encryption-9725c0201ea8
 
 ### Detection & Analysis
 * https://www.immersivelabs.com/blog/detecting-and-decrypting-sliver-c2-a-threat-hunters-guide/
