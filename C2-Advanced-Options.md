@@ -31,3 +31,4 @@ generate --http http://example.com?driver=wininet
 * `max-errors` - Max number of query errors before failing (integer parsed by `strconv.Atoi`).
 * `force-base32` - Always use Base 32 encoding.
 * `force-resolv-conf` - Force the use of a provided `resolv.conf`. Note that you'll need to URL encode the newlines/etc of the file contents into the parameter.
+* `resolvers` - Force the use of specific DNS resolvers. You can supply more than one by separating them with `+`, i.e. `...?resolvers=1.1.1.1+9.9.9.9`
