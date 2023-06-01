@@ -140,6 +140,8 @@ Starting in v1.5 you can make extensive customizations to the HTTP C2 traffic ge
 |`max_paths`| Max number of path segments to generate per-URL in addition to any prefixes (default: `8`) |
 |`min_paths`| Min number of path segments to generate per-URL in addition to any prefixes (default: `2`) |
 |`stager_file_ext`| The file extension to associate with stagers (default: `.woff`) |
+|`stager_files`| A list of strings that should be used as "file name" segments in the URL, appended with `stager_file_ext` |
+|`stager_paths`| A list of strings that should be used as path segments in the generated URL |
 |`poll_file_ext` | The file extension to associate with poll requests (default: `.js`)|
 |`poll_files`| A list of strings that should be used as "file name" segments in the URL, appended with `poll_file_ext` |
 |`poll_paths`| A list of strings that should be used as path segments in the generated URL |
