@@ -16,6 +16,11 @@ First git clone the repository:
 ```
 $ git clone https://github.com/BishopFox/sliver.git
 $ cd sliver
+```
+
+The `master` branch will contain the latest Sliver features, however only release version of Sliver are recommended for production use. It is strongly recommended to checkout the latest tagged release branch when compiling from source unless you're a developer:
+
+```
 $ git checkout tags/v1.5.39
 ```
 
