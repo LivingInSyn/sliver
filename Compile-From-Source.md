@@ -16,6 +16,7 @@ First git clone the repository:
 ```
 $ git clone https://github.com/BishopFox/sliver.git
 $ cd sliver
+$ git checkout tags/v1.5.39
 ```
 
 Sliver embeds its own copy of the Go compiler and a few internal tools, the first time your run `make` a bash script will run to download these assets to your local system. This means the first build will take much longer than subsequent builds, especially if your internet connection is slow.
