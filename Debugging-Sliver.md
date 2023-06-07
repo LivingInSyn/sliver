@@ -14,7 +14,7 @@ Debugging the Sliver needs to be done via delve [remote debugging](https://githu
 
 ```shell
 dlv debug \
---build-flags="-tags osusergo,netgo,cgosqlite,sqlite_omit_load_extension,server -ldflags='-X github.com/bishopfox/sliver/client/version.Version=1.1.2 -X github.com/bishopfox/sliver/client/version.CompiledAt=Never -X github.com/bishopfox/sliver/client/version.GithubReleasesURL=github.com -X github.com/bishopfox/sliver/client/version.GitCommit=aabbcc -X github.com/bishopfox/sliver/client/version.GitDirty=Dirty'" \
+--build-flags="-tags osusergo,netgo,go_sqlite,server -ldflags='-X github.com/bishopfox/sliver/client/version.Version=1.1.2 -X github.com/bishopfox/sliver/client/version.CompiledAt=Never -X github.com/bishopfox/sliver/client/version.GithubReleasesURL=github.com -X github.com/bishopfox/sliver/client/version.GitCommit=aabbcc -X github.com/bishopfox/sliver/client/version.GitDirty=Dirty'" \
 --headless \
 --listen=:2345 \
 --api-version=2 \
