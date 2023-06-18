@@ -28,15 +28,15 @@ The following keys are embedded in each implant at compile time, the server also
 
 1. An implant starts a pivot listener (the listener)
 2. Another implant connects to the listener (the initiator) 
-3. The initiator sends its ECC public key and the minisign signature of its public key
+3. The initiator sends its Age public key and the minisign signature of its public key
 4. The listener verifies the initiator's public key is signed by the listener's server's minisign public key
 5. The listener generates a random session key and encrypts it with the initiator's verified public key
-6. The listener sends its ECC public key, the minisign signature of its public key, and the encrypted session key back to the initiator
+6. The listener sends its Age public key, the minisign signature of its public key, and the encrypted session key back to the initiator
 7. The initiator verifies the listener's public key is signed by the initiator's server's minisign public key
-8. The initiator decrypts the session key using Nacl Box (Curve25519, XSalsa20, and Poly1305) 
+8. The initiator decrypts the session key using Age
 9. All messages are encrypted with the session key using ChaCha20Poly1305
 10. Each side stores a SHA2-256 hash of each message's ciphertext to detect replayed messages
-11. The initiator then performs a key exchange with the server, using the server's embedded ECC public key, using the same pattern as described above but without the TOTP code. This prevents upstream implants (i.e. the listener) from being able to decrypt any traffic sent between the initiator and the server.
+11. The initiator then performs a key exchange with the server, using the server's embedded ECC public key, using the same pattern as described above. This prevents upstream implants (i.e. the listener) from being able to decrypt any traffic sent between the initiator and the server.
 
 ### Known Limitations
 
@@ -44,8 +44,7 @@ There are some known limitations, if you spot any or have ideas on improvements 
 
 1. Perfect Forward Secrecy: We do get some forward secrecy, since only the public key encrypted version of the session key is sent over the wire; therefore recovery of the hard coded implant keys from the binary should not result in recovery of the session key. Only when the server's private key is compromised can the session key be recovered, which we currently don't consider to be a problem.
 2. Implants can potentially be tracked via the hash of their public key. However, this value is implant specific, so in order to track the implant this way you'd have to already have a copy of the specific implant you want to track. At which point more effective tracking mechanisms like YARA rules could be employed.
-3. Session initialization messages can be replayed within the validity period of the TOTP value. TOTP values are valid for 30 seconds + 30 second margin of error, so the session initialization message can be replayed within about ~60 second period without obtaining a new TOTP code. However, the implant must use the session key to register itself post-key exchange so replayed session initialization does not appear to be a security risk even outside of the restrictive window.
-4. While messages cannot be replayed, valid messages can potentially be re-ordered.
+3. While messages cannot be replayed, valid messages can potentially be re-ordered.
 
 
 
