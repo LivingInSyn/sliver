@@ -1,28 +1,26 @@
  __⚠️ NOTE:__ This document does not apply when mTLS or WireGuard are used.
 
-# Versions 1.6.0+
+# Versions 1.5.40+ 
 
-⚠️ __This describes changes in an upcoming release__
-
-The following keys are embedded in each implant at compile time, the server also stores these values in its database in addition to the SHA2-256 hash of the implant's public key:
+The following keys are embedded in each implant at compile time, the server also stores these values in its database in addition to the SHA2-256 hash of the implant's peer public key:
 
 1. Age public key of server 
-2. Age implant public key
-3. Age implant private key
-4. A minisign signature of the implant's age public key (signed by server's private key)
+2. Age implant "peer" public key
+3. Age implant "peer" private key
+4. A minisign signature of the implant's age peer public key (signed by server's private key)
 5. The server's minisign public key 
 
 ### Server to Implant Key Exchange
 
 1. Implant generates random 256-bit symmetric "session key"
 2. Implant generates:
- * SHA2-256 hash of its Age peer public key
- * Uses Age to encrypt session key with server's public Age key
+ * Calculate the HMAC-SHA2-256 of the session key, where the HMAC key is the SHA2-256 hash of the peer private key
+ * Uses Age to encrypt session key and HMAC-SHA256 with server's public key
 3. Implant sends `[SHA2-256 Hash of Public Key | Age Ciphertext ]` to server.
-5. Server decrypts with server Age private key
-7. Server generates a session ID, encrypts it with the session key using ChaCha20Poly1305, and sends it back
-8. All messages are encrypted with the session key using ChaCha20Poly1305 and associated with via the session ID
-9. Each side stores a SHA2-256 hash of each message's ciphertext to detect replayed messages
+5. Server decrypts message with its private key
+6. Server generates a session ID, encrypts it with the session key using ChaCha20Poly1305, and sends it back
+7. All messages are encrypted with the session key using ChaCha20Poly1305 and associated with via the session ID
+8. Each side stores a SHA2-256 hash of each message's ciphertext to detect replayed messages
 
 ### Implant to Implant Key Exchange (Pivots)
 
@@ -46,9 +44,9 @@ There are some known limitations, if you spot any or have ideas on improvements 
 2. Implants can potentially be tracked via the hash of their public key. However, this value is implant specific, so in order to track the implant this way you'd have to already have a copy of the specific implant you want to track. At which point more effective tracking mechanisms like YARA rules could be employed.
 3. While messages cannot be replayed, valid messages can potentially be re-ordered.
 
-
-
 # Versions 1.5.0+
+
+⚠️ This version of the key exchange is [vulnerable to MitM attack](https://github.com/BishopFox/sliver/security/advisories/GHSA-8jxm-xp43-qh3q)
 
 The following keys are embedded in each implant at compile time, the server also stores these values in its database in addition to the SHA2-256 hash of the implant's public key:
 
