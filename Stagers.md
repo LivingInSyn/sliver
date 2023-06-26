@@ -134,7 +134,7 @@ namespace SliverStager
 
 ## Encrypted Stage Example 
 
-Sliver supports encryption and compression when serving stages. Compression options are `zlib`, `gzip`, and `deflate` (level 9). Encryption is done via AES-CBC-128, since this encryption is primarily for obfuscation we don't really need a more secure cipher mode.
+Sliver supports encryption and compression when serving stages. Compression options are `zlib`, `gzip`, and `deflate` (level 9). Encryption is done via AES-CBC with block size determined by the length of the key. Since this encryption is primarily for obfuscation we don't really need a more secure cipher mode.
 
 ```
 stage-listener --url http://192.168.0.52:80 --profile win-shellcode --aes-encrypt-key D(G+KbPeShVmYq3t6v9y$B&E)H@McQfT --aes-encrypt-iv 8y/B?E(G+KbPeShV
